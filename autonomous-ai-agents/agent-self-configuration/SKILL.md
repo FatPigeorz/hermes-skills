@@ -7,7 +7,6 @@ license: MIT
 metadata:
   hermes:
     tags: [identity, discord, multi-agent, profiles, configuration, self-model]
-    legacy_aliases: [init-self]
 ---
 
 # Agent Self Configuration

@@ -7,7 +7,6 @@ license: MIT
 metadata:
   hermes:
     tags: [discord, messaging, coordination, bots, mentions, handoff]
-    legacy_aliases: [mention-other]
 ---
 
 # Discord Peer Coordination
