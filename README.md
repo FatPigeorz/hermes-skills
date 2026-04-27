@@ -28,3 +28,6 @@ The categorized folders in this repo are source/organization copies; `hermes ski
 
 ### productivity
 - `discord-peer-coordination` — coordinate with another bot/person via explicit Discord mentions when direct agent-to-agent integration is unavailable
+
+### project-management
+- `create-project` — create a research project workspace across Discord, Notion, and a private Agentiix GitHub repo initialized with `uv init`
