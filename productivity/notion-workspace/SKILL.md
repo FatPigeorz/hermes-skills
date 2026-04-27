@@ -1,6 +1,6 @@
 ---
-name: fatpigeorz-notion-workspace
-description: FatPigeorz's accessible Notion workspace structure and conventions for Hermes agents. Load with the generic notion skill before reading or writing the user's Notion workspace.
+name: notion-workspace
+description: Accessible Notion workspace structure and conventions for Hermes agents. Load with the generic notion skill before reading or writing the user's Notion workspace.
 version: 0.1.0
 author: FatPigeorz + Hermes
 license: MIT
@@ -10,7 +10,7 @@ metadata:
     related_skills: [notion]
 ---
 
-# FatPigeorz Notion Workspace
+# Notion Workspace
 
 Use this skill when the user asks about their Notion workspace, Agentix working area, research notes, experiments, literature, methods, or asks an agent to create/update Notion content.
 
