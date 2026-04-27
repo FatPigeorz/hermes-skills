@@ -100,6 +100,9 @@ Preferred approach:
 - remove stale Discord env overrides unless they are intentionally profile-specific
 - if an env override is required, document why
 
+Current Hermes adapter pitfall:
+- Some installed Hermes versions read `DISCORD_ALLOW_BOTS` directly in the Discord adapter and do not bridge `discord.allow_bots` from YAML into that env var. If peer-bot coordination does not work after setting `discord.allow_bots: mentions`, set `DISCORD_ALLOW_BOTS=mentions` in the active profile env file or service environment and document that override.
+
 ## `free_response_channels` vs `allowed_channels`
 
 Use `free_response_channels` when the user means:
