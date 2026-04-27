@@ -2,6 +2,16 @@
 
 Selected Hermes skills for Discord agent onboarding and team integration.
 
+## Layout
+
+Canonical Hermes tap layout is flat under `skills/`:
+
+```text
+skills/<skill-name>/SKILL.md
+```
+
+The categorized folders in this repo are source/organization copies; `hermes skills tap add FatPigeorz/hermes-skills` discovers the flat `skills/` tree.
+
 ## Included skills
 
 ### discord-landing
