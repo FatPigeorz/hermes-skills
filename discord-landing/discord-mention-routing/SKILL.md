@@ -7,7 +7,7 @@ license: MIT
 metadata:
   hermes:
     tags: [discord, gateway, mentions, routing, free-response, multi-agent]
-    related_skills: [discord-agent-identity]
+    related_skills: [discord-configuration, discord-agent-identity]
 ---
 
 # Discord Mention Routing
@@ -24,12 +24,13 @@ For Discord landing skills, the key configuration question is:
 
 > Where may this agent respond without being explicitly mentioned?
 
-Default policy:
+Default policy (load `discord-configuration` for the canonical gateway/profile keys, env override checks, session grouping, restart, and verification):
 
 - During self-configuration, the channel where the user asks the agent to configure itself is that agent's free-response channel.
 - Outside that configured free-response channel, new agents are **mention-first** unless explicitly configured otherwise.
 - The agent should allow mention handling and receive messages from all server members when the Discord/gateway configuration supports it.
 - Peer-agent coordination should use explicit mentions even in free-response channels.
+- Post responses as normal channel messages; do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it.
 - Avoid bot pile-ons: if another agent is clearly addressed, do not answer unless asked to review, execute, or coordinate.
 
 ## Handoff format

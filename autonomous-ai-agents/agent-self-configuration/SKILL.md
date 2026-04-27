@@ -55,13 +55,19 @@ Check the active profile's:
 Pay attention to:
 - `discord.require_mention`
 - `discord.free_response_channels`
+- `discord.allowed_channels`
+- `discord.auto_thread`
+- `discord.allow_bots`
+- `group_sessions_per_user`
+- Discord-related `.env` overrides
 - `DISCORD_ALLOWED_USERS`
-- `DISCORD_ALLOW_BOTS`
 - home channel settings
 - profile-specific persona or identity text
 
 ### 3. Reflect current local customization
 Before acting, capture how this specific deployment is configured right now.
+
+Load `discord-configuration` when Discord gateway/profile settings are involved.
 
 Check and summarize:
 - current `discord.require_mention`
@@ -89,6 +95,7 @@ Explicitly avoid mistakes like:
 Decide:
 - where you may free-respond
 - where you should only respond on mention
+- whether responses should be normal channel messages; by default, do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it
 - when you should message another bot instead of replying directly yourself
 
 ### 6. Use explicit mentions carefully

@@ -54,6 +54,10 @@ Prefer:
 
 Do not open unnecessary threads unless explicitly requested or clearly beneficial.
 
+Post coordination messages as normal channel messages; do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it.
+
+For gateway/profile settings that affect whether bot mentions are accepted (`allow_bots`, allowed users/channels, mention-gating, session grouping), load `discord-configuration`.
+
 ### 3. Write the request for actionability
 A good mention message includes:
 - direct mention

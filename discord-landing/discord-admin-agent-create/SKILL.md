@@ -7,7 +7,7 @@ license: MIT
 metadata:
   hermes:
     tags: [discord, gateway, admin, onboarding, profile]
-    related_skills: [discord-agent-identity, discord-mention-routing]
+    related_skills: [discord-configuration, discord-agent-identity, discord-mention-routing]
 ---
 
 # Discord Admin Agent Create
@@ -45,18 +45,21 @@ Never invent credentials. If a token/API key is missing, report the exact missin
 2. Configure model/provider.
 3. Configure gateway Discord token and allowed server/channel settings.
 4. Record exact Discord bot account ID and mention.
-5. Apply the server's default policy:
+5. Load and apply `discord-configuration` for canonical gateway/profile settings, env override checks, session grouping, restart, and verification.
+6. Apply the server's default policy:
    - the initialization channel is the new agent's free-response channel
    - mention-first outside configured free-response channels
    - mention handling and receiving messages from all server members enabled when supported
    - explicit mentions for peer-agent handoffs
+   - normal channel messages only; do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it
    - no identity inference from display names
-6. Load/apply:
+7. Load/apply:
+   - `discord-configuration`
    - `discord-agent-identity`
    - `discord-mention-routing`
-7. Verify the agent responds to direct mention.
-8. Verify it does not respond when another agent is addressed.
-9. Document the final configuration.
+8. Verify the agent responds to direct mention.
+9. Verify it does not respond when another agent is addressed.
+10. Document the final configuration.
 
 ## Output format
 

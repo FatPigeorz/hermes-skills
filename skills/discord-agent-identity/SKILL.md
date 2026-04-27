@@ -7,7 +7,7 @@ license: MIT
 metadata:
   hermes:
     tags: [discord, gateway, agent-identity, multi-agent, onboarding]
-    related_skills: [discord-mention-routing]
+    related_skills: [discord-configuration, discord-mention-routing]
 ---
 
 # Discord Agent Identity
@@ -32,6 +32,7 @@ Record these durable facts for the agent:
    - Home channel(s)
    - Whether the agent may free-respond in any channel
    - Whether the agent is mention-first by default
+   - Load `discord-configuration` for exact gateway keys, env override checks, session grouping, and verification
 
 3. **Role boundary**
    - What this agent owns
@@ -50,6 +51,8 @@ For FatPigeorz's Discord multi-agent setup:
 - Use explicit Discord IDs/mentions; never infer identity from display names alone.
 - During self-configuration, the channel where the user asks the agent to configure itself is the agent's free-response channel.
 - New agents should be **mention-first by default** outside their configured free-response channel.
+- Use `discord-configuration` as the canonical source for Discord gateway/profile settings (`require_mention`, `free_response_channels`, `allowed_channels`, `auto_thread`, `allow_bots`, `group_sessions_per_user`, and `.env` overrides).
+- The agent should post responses as normal channel messages; do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it.
 - The agent should allow mention handling and receive messages from all server members when the Discord/gateway configuration supports it.
 - Existing known identities:
   - Toodles: `<@1497931025500733490>`

@@ -7,7 +7,7 @@ license: MIT
 metadata:
   hermes:
     tags: [discord, agent, onboarding, identity, configuration, free-response, mentions, multi-agent]
-    related_skills: [agent-self-configuration, discord-free-response-config, discord-peer-coordination]
+    related_skills: [agent-self-configuration, discord-configuration, discord-free-response-config, discord-peer-coordination]
 ---
 
 # Discord Agent Onboarding
@@ -50,7 +50,8 @@ In this workspace, **free-response configuration is the highest-priority landing
 
 Use these supporting skills when needed:
 - `agent-self-configuration` — agent identity, profile, self-vs-peer distinction
-- `discord-free-response-config` — gateway/config policy for free-response vs mention gating
+- `discord-configuration` — central gateway/profile configuration, env overrides, sessions, channel policy, restart/verification
+- `discord-free-response-config` — focused free-response vs mention-gating workflow built on `discord-configuration`
 - `discord-peer-coordination` — fallback coordination through Discord chat when there is no deeper agent-to-agent channel
 
 ## Workflow
@@ -73,19 +74,15 @@ Do not infer identity from display names alone.
 ### 2. Configure reply policy first
 Before broader coordination, make sure the new agent's Discord reply behavior is correct.
 
+Load and follow `discord-configuration` for exact keys, env override checks, session grouping, restart, and verification.
+
 Default target state:
 - `discord.require_mention: true`
 - `free_response_channels`: only explicitly designated channel(s)
 - `allowed_channels`: empty unless the user explicitly wants a hard whitelist
+- `auto_thread: false`
+- `group_sessions_per_user: false` for shared team-channel context
 - DM behavior preserved
-
-Always inspect both:
-- `config.yaml`
-- `.env`
-
-Reason:
-- env overrides can silently defeat the intended reply policy
-- most onboarding mistakes in this workspace are really gateway/config mistakes
 
 ### 3. Define self vs peers
 Build a clear model of:
@@ -107,6 +104,7 @@ Choose the collaboration surface for the new agent:
 
 Default here:
 - avoid unnecessary threads
+- post normal channel messages; do **not** use Discord reply/threaded-reply functionality unless the user explicitly requests it
 - use mention-based coordination outside designated free-response channels
 
 ### 5. Align role and boundaries
