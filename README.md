@@ -4,6 +4,11 @@ Selected Hermes skills for Discord agent onboarding and team integration.
 
 ## Included skills
 
+### discord-landing
+- `discord-agent-identity` — configure an agent's exact Discord bot identity, role, boundaries, and server integration
+- `discord-mention-routing` — coordinate agents through explicit mentions, safe routing, and free-response boundaries
+- `discord-admin-agent-create` — admin workflow for creating or onboarding a new Hermes Discord agent/profile
+
 ### social-media
 - `discord-agent-onboarding` — canonical onboarding flow for a new Discord agent
 - `discord-free-response-config` — configure mention-gated vs free-response behavior correctly
